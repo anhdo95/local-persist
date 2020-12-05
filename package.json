@@ -1,0 +1,23 @@
+{
+  "name": "local-persist",
+  "version": "1.0.0",
+  "description": "A simplified client localStorage API",
+  "main": "index.js",
+  "author": "Richard Do <anhdo5995@gmail.com> (https://anhdo95.github.io/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anhdo95/local-persist.git"
+  },
+  "keywords": [
+    "random",
+    "star wars"
+  ],
+  "files": [
+    "dist"
+  ],
+  "bugs": {
+    "url": "https://github.com/anhdo95/local-persist/issues"
+  },
+  "homepage": "https://github.com/anhdo95/local-persist#readme"
+}
