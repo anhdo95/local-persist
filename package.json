@@ -5,13 +5,18 @@
   "main": "index.js",
   "author": "Richard Do <anhdo5995@gmail.com> (https://anhdo95.github.io/)",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint ."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anhdo95/local-persist.git"
   },
   "keywords": [
-    "random",
-    "star wars"
+    "local persist",
+    "local storage",
+    "persistent",
+    "local persistant"
   ],
   "files": [
     "dist"
@@ -19,5 +24,10 @@
   "bugs": {
     "url": "https://github.com/anhdo95/local-persist/issues"
   },
-  "homepage": "https://github.com/anhdo95/local-persist#readme"
+  "homepage": "https://github.com/anhdo95/local-persist#readme",
+  "devDependencies": {
+    "eslint": "7.2.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
 }
