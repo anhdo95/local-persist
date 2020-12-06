@@ -1,5 +1,5 @@
 # local-persist
-A simplified client `localStorage` API
+A simplified client `localStorage` API, including typescript support already!
 
 # Install
 Using `npm`
@@ -95,4 +95,22 @@ var localPersist = require('local-persist');
 localPersist.set('key1', 'value1');
 localPersist.set('key2', 'value2');
 localPersist.clear();
+```
+
+## Typescript now is available!
+
+##### Example
+
+```ts
+import localPersist from "local-persist";
+
+localPersist('foo', bar)
+localPersist.set<number>('foo', 2);
+localPersist.get<boolean>('bar', true);
+
+interface Foo{
+  bar: string;
+}
+
+localPersist<Foo>('foo');
 ```

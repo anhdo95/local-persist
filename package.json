@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build:main": "babel src --out-dir dist --ignore \"src/**/*.test.js\" --copy-files --no-copy-ignored",
+    "build:main": "babel src --out-dir dist --ignore \"src/**/*.test.js\"",
     "build:types": "tsc -p tsconfig.build.types.json --declarationDir dist",
     "build:umd": "webpack --mode development --output-filename index.umd.js",
     "build:umd.min": "webpack --output-filename index.umd.min.js",
