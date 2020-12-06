@@ -8,9 +8,10 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build:main": "babel src --out-dir dist --ignore \"src/**/*.test.js\" --copy-files --no-copy-ignored",
+    "build:types": "tsc -p tsconfig.build.types.json --declarationDir dist",
     "build:umd": "webpack --mode development --output-filename index.umd.js",
     "build:umd.min": "webpack --output-filename index.umd.min.js",
-    "build": "npm-run-all --parallel build:main build:umd.min",
+    "build": "npm-run-all --parallel build:main build:types build:umd.min",
     "lint": "eslint src/**/*.js",
     "validate": "npm run lint"
   },
@@ -42,6 +43,7 @@
     "husky": "4.3.4",
     "npm-run-all": "4.1.5",
     "rimraf": "3.0.2",
+    "typescript": "4.1.2",
     "webpack": "5.10.0",
     "webpack-cli": "4.2.0"
   },
