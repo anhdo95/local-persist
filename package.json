@@ -10,8 +10,9 @@
     "build:main": "babel src --out-dir dist --ignore \"src/**/*.test.js\"",
     "build:umd": "webpack --mode development --output-filename index.umd.js",
     "build:umd.min": "webpack --output-filename index.umd.min.js",
-    "build": "npm-run-all --parallel build:*",
-    "lint": "eslint ."
+    "build": "npm-run-all --parallel build:main build:umd.min",
+    "lint": "eslint src/**/*.js",
+    "validate": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -38,9 +39,15 @@
     "eslint": "7.2.0",
     "eslint-config-airbnb-base": "14.2.1",
     "eslint-plugin-import": "^2.22.1",
+    "husky": "4.3.4",
     "npm-run-all": "4.1.5",
     "rimraf": "3.0.2",
     "webpack": "5.10.0",
     "webpack-cli": "4.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run validate"
+    }
   }
 }
