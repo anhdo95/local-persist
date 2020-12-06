@@ -2,10 +2,12 @@
   "name": "local-persist",
   "version": "1.0.0",
   "description": "A simplified client localStorage API",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "Richard Do <anhdo5995@gmail.com> (https://anhdo95.github.io/)",
   "license": "MIT",
   "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "babel src --out-dir dist --ignore \"src/**/*.test.js\"",
     "lint": "eslint ."
   },
   "repository": {
@@ -26,8 +28,12 @@
   },
   "homepage": "https://github.com/anhdo95/local-persist#readme",
   "devDependencies": {
+    "@babel/cli": "7.12.8",
+    "@babel/core": "7.12.9",
+    "@babel/preset-env": "7.12.7",
     "eslint": "7.2.0",
     "eslint-config-airbnb-base": "14.2.1",
-    "eslint-plugin-import": "^2.22.1"
+    "eslint-plugin-import": "^2.22.1",
+    "rimraf": "3.0.2"
   }
 }
