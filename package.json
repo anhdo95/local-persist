@@ -13,7 +13,8 @@
     "build:umd.min": "webpack --output-filename index.umd.min.js",
     "build": "npm-run-all --parallel build:main build:types build:umd.min",
     "lint": "eslint src/**/*.js",
-    "validate": "npm run lint"
+    "validate": "npm run lint",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,9 @@
     "@babel/core": "7.12.9",
     "@babel/preset-env": "7.12.7",
     "babel-loader": "8.2.2",
+    "commitizen": "4.2.2",
+    "commitlint": "11.0.0",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "7.2.0",
     "eslint-config-airbnb-base": "14.2.1",
     "eslint-plugin-import": "^2.22.1",
@@ -47,9 +51,15 @@
     "webpack": "5.10.0",
     "webpack-cli": "4.2.0"
   },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run validate"
+      "pre-commit": "npm run validate",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
