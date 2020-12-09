@@ -1,14 +1,16 @@
 {
   "env": {
     "node": true,
-    "browser": true
+    "browser": true,
+    "jest": true
   },
   "extends": [
     "airbnb-base"
   ],
+  "plugins": ["jest"],
   "rules": {
     "semi": ["error", "never"],
-
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
     "import/prefer-default-export": "off"
   }
 }
