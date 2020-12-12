@@ -1,6 +1,6 @@
 {
   "name": "local-persist",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "A simplified client localStorage API",
   "main": "dist/index.js",
   "author": "Richard Do <anhdo5995@gmail.com> (https://anhdo95.github.io/)",
