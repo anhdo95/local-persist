@@ -1,8 +1,12 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import localPersist from '../index'
 
 const typesAndValues = [
   { type: 'boolean', value: true },
-  { type: 'string', value: '123456' },
+  { type: 'string', value: 'something' },
   { type: 'number', value: 10 },
   { type: 'float', value: 1.5 },
   { type: 'object', value: { author: 'Richard Do', github: 'https://anhdo95.github.io/' } },
@@ -10,39 +14,46 @@ const typesAndValues = [
 
 describe('local-persist', () => {
   typesAndValues.forEach(({ type, value }) => {
-    it(`should localPersist set "${type}" type`, () => {
+    it(`should set "${type}" type`, () => {
       expect(localPersist.set(type, value)).toBeTruthy()
     })
   })
 
+  it(`should not set "bigint" type`, () => {
+    const key = 'bigint'
+    const value = BigInt(1)
+
+    expect(localPersist.set(key, value)).toBeFalsy()
+  })
+
   typesAndValues.forEach(({ type, value }) => {
-    it(`should localPersist get "${type}" type`, () => {
+    it(`should get "${type}" type`, () => {
       expect(localPersist.get(type)).toEqual(value)
     })
   })
 
-  it('should localPersist function sets correctly', () => {
+  it('should set localPersist function correctly', () => {
     const [first, second] = typesAndValues
 
-    expect(localPersist.set(first.type, first.value)).toBeTruthy()
-    expect(localPersist.set(second.type, second.value)).toBeTruthy()
+    expect(localPersist(first.type, first.value)).toBeTruthy()
+    expect(localPersist(second.type, second.value)).toBeTruthy()
   })
 
-  it('should localPersist function gets correctly', () => {
+  it('should get localPersist function correctly', () => {
     const [first, second] = typesAndValues
 
-    expect(localPersist.get(first.type)).toBe(first.value)
-    expect(localPersist.get(second.type)).toBe(second.value)
+    expect(localPersist(first.type)).toBe(first.value)
+    expect(localPersist(second.type)).toBe(second.value)
   })
 
   typesAndValues.forEach(({ type }) => {
-    it(`should localPersist remove "${type}" type`, () => {
+    it(`should remove "${type}" type`, () => {
       localPersist.remove(type)
       expect(localPersist.get(type)).toBeNull()
     })
   })
 
-  it(`should localPersist clear all items`, () => {
+  it(`should clear all items`, () => {
     const [first, second] = typesAndValues
 
     localPersist.set(first.type, first.value)
